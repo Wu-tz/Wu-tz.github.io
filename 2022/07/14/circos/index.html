@@ -6,22 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wu-tz.github.io">
-  <title>词云图 | Wutianzhen</title>
+  <title>利用TBtools绘制简单的circos图 | Wutianzhen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="利用wordcloud2包制作词云图，对数据的词频进行可视化。">
+  <meta name="description" content="首先测试一下TBtools中在Graphics下面Advanced Circos工具。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="词云图">
-<meta property="og:url" content="https://wu-tz.github.io/2022/03/10/wordcloud/index.html">
+<meta property="og:title" content="利用TBtools绘制简单的circos图">
+<meta property="og:url" content="https://wu-tz.github.io/2022/07/14/circos/index.html">
 <meta property="og:site_name" content="Wutianzhen">
-<meta property="og:description" content="利用wordcloud2包制作词云图，对数据的词频进行可视化。">
+<meta property="og:description" content="首先测试一下TBtools中在Graphics下面Advanced Circos工具。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://wu-tz.github.io/2022/03/10/wordcloud/0310-1.png">
-<meta property="article:published_time" content="2022-03-10T13:04:22.000Z">
-<meta property="article:modified_time" content="2022-03-10T13:29:17.231Z">
+<meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos1.jpg">
+<meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos2.jpg">
+<meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos3.jpg">
+<meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos4.jpg">
+<meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos5.jpg">
+<meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos6.jpg">
+<meta property="article:published_time" content="2022-07-14T01:25:15.000Z">
+<meta property="article:modified_time" content="2022-07-14T09:59:32.983Z">
 <meta property="article:author" content="Wutianzhen">
-<meta property="article:tag" content="可视化">
+<meta property="article:tag" content="方法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://wu-tz.github.io/2022/03/10/wordcloud/0310-1.png">
+<meta name="twitter:image" content="https://wu-tz.github.io/2022/07/14/circos/circos1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Wutianzhen" type="application/atom+xml">
   
@@ -181,7 +186,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-wordcloud" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-circos" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -193,8 +198,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2022/03/10/wordcloud/" class="archive-article-date">
-  	<time datetime="2022-03-10T13:04:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-10</time>
+<a href="/2022/07/14/circos/" class="archive-article-date">
+  	<time datetime="2022-07-14T01:25:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-14</time>
 </a>
         
       </header>
@@ -203,79 +208,54 @@
 	   <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      词云图
+      利用TBtools绘制简单的circos图
     </h1>
   
 </p></center>
       
-        <p>利用wordcloud2包制作词云图，对数据的词频进行可视化。</p>
-<span id="more"></span>
+        <h3 id="首先测试一下TBtools中在Graphics下面Advanced-Circos工具。"><a href="#首先测试一下TBtools中在Graphics下面Advanced-Circos工具。" class="headerlink" title="首先测试一下TBtools中在Graphics下面Advanced Circos工具。"></a><strong>首先测试一下TBtools中在Graphics下面Advanced Circos工具。</strong></h3><span id="more"></span>
 
-<p>准备excel表格，包括关键词和频数。例如：</p>
-<table>
-<thead>
-<tr>
-<th align="center">word</th>
-<th align="center">freq</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">分子遗传学</td>
-<td align="center">9</td>
-</tr>
-<tr>
-<td align="center">分类学</td>
-<td align="center">9</td>
-</tr>
-<tr>
-<td align="center">生物地理学</td>
-<td align="center">8</td>
-</tr>
-<tr>
-<td align="center">古生物学</td>
-<td align="center">6</td>
-</tr>
-<tr>
-<td align="center">生态学</td>
-<td align="center">10</td>
-</tr>
-<tr>
-<td align="center">分子系统学</td>
-<td align="center">8</td>
-</tr>
-<tr>
-<td align="center">水生动物学</td>
-<td align="center">10</td>
-</tr>
-<tr>
-<td align="center">微生物</td>
-<td align="center">7</td>
-</tr>
-<tr>
-<td align="center">基因组学</td>
-<td align="center">8</td>
-</tr>
-<tr>
-<td align="center">地质学</td>
-<td align="center">5</td>
-</tr>
-<tr>
-<td align="center">气候学</td>
-<td align="center">6</td>
-</tr>
-<tr>
-<td align="center">环境海洋学</td>
-<td align="center">7</td>
-</tr>
-<tr>
-<td align="center">进化生物学</td>
-<td align="center">9</td>
-</tr>
-</tbody></table>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setwd(<span class="string">&quot;D:/Desktop/词云图&quot;</span>) <span class="comment">#设置工作路径</span></span><br><span class="line">dir()</span><br><span class="line">install.packages(<span class="string">&quot;wordcloud2&quot;</span>) <span class="comment">#安装wordcloud2包</span></span><br><span class="line">library(wordcloud2)</span><br><span class="line">install.packages(<span class="string">&quot;openxlsx&quot;</span>)</span><br><span class="line">library(openxlsx)</span><br><span class="line">wordmap&lt;-read.xlsx(<span class="string">&quot;wordcloud.xlsx&quot;</span>)</span><br><span class="line">wordcloud2(wordmap,size=<span class="number">0.3</span>,shape=<span class="string">&#x27;cardioid&#x27;</span>,color=<span class="string">&quot;random-light&quot;</span>) <span class="comment">#可视化，关于更多参数，可由help(&quot;wordcloud2&quot;)命令查看</span></span><br></pre></td></tr></table></figure>
+<p>该工具下的三个输入框分别输入三个文件，文件中每列以制表符分隔开来。</p>
+<p>①染色体的名字及其长度，共两列；</p>
+<p>②染色体上所有元件特征的位置信息，分别为染色体名称、序列元件名称、序列原件的起始位置和序列原件的终止位置，共四列；</p>
+<p>③同一元件在不同染色体的位置信息，分别为染色体1的名称、元件在染色体1的起始位置、染色体1的终止位置、染色体2的名称、元件在染色体2的起始位置、染色体2的终止位置。</p>
+<p>为了方便测试，简单编辑了三个文件，格式如下</p>
+<img src="/2022/07/14/circos/circos1.jpg" class title="This is an example image">
 
-<p>可得到以下：</p>
-<img src="/2022/03/10/wordcloud/0310-1.png" class title="This is an example image"><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+<p>将这三个文件分别拖入输入框后，点击绘图，得到以下结果，表明没有软件报错，运行环境正常，如果用基因组大数据来绘图时，若文件格式正确，应该不会出问题。</p>
+<img src="/2022/07/14/circos/circos2.jpg" class title="This is an example image">
+
+<h3 id="接下来是如何在公共数据库中获取基因组数据，以及如何进行数据转换，得到circos工具需要的格式。"><a href="#接下来是如何在公共数据库中获取基因组数据，以及如何进行数据转换，得到circos工具需要的格式。" class="headerlink" title="接下来是如何在公共数据库中获取基因组数据，以及如何进行数据转换，得到circos工具需要的格式。"></a><strong>接下来是如何在公共数据库中获取基因组数据，以及如何进行数据转换，得到circos工具需要的格式。</strong></h3><p>以多孔鹿角珊瑚（Acropora millepora）基因组为例，该物种基因组是目前珊瑚虫纲为数不多的组装为染色体水平的基因组，包括已装配的14个染色体和为装配的部分。</p>
+<p>NCBI下载GFF（general feature format）文件后，发现14个染色体的长度在以“##sequence-region NC_”开头的行中，所以可以利用此特征进行grep得到染色体长度信息，这样就可以轻松准备好第一个文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &quot;##sequence-region NC_&quot; GCF_013753865.1_Amil_v2.1_genomic.gff |awk &#x27;&#123;print $2,$4&#125;&#x27; OFS=&quot;\t&quot; &gt; coral-chrlen.txt</span><br></pre></td></tr></table></figure>
+
+<p>第二个文件需要染色体上所有元件特征的位置信息，基因组上的元件一般包括gene、exon、mRNA等，一般取gene进行可视化，那么需要将GFF文件中装配在染色体上的并且第三列为gene的行提取出来。也就是提出”NC_xxxx.x Gnomon gene“格式的行，因此可以得到染色体上所有基因的所有信息。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &quot;NC_&quot; GCF_013753865.1_Amil_v2.1_genomic.gff |grep $&#x27;\t&#x27;Gnomon$&#x27;\t&#x27;gene$&#x27;\t&#x27; &gt; chr-gene.txt</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/07/14/circos/circos3.jpg" class title="This is an example image">
+
+<p>根据文件特征，利用awk和grep提取第二个文件的信息。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F&#x27;[\t;]&#x27; -v OFS=&quot;\t&quot; &#x27;&#123;print $1,$13,$4,$5&#125;&#x27; chr-gene.txt | sed &#x27;s/gene=//g&#x27; &gt; coral-genome-feature-list.txt</span><br></pre></td></tr></table></figure>
+
+<p>此处得到的文件中，存在极少部分的行，其第二列并不是基因名，这是GFF文件中这一行与其他行的格式不一样导致的，在本测试中有97行出现错误，即基因名字为”gbkey=Gene“，考虑到这些基因不足总基因数的0.5%，选择直接去除这些行。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#x27;/gbkey=Gene/d&#x27; coral-genome-feature-list.txt  #删除带有gbkey=Gene的行</span><br></pre></td></tr></table></figure>
+
+<p>下面制作第三个文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">awk &#x27;&#123;print $2&#125;&#x27; coral-genome-feature-list.txt &gt; all-genes-list.txt  #将所有基因提取出来</span><br><span class="line"></span><br><span class="line">for i in `cat all-genes-list.txt`;do num=`grep $i coral-genome-feature-list.txt|wc -l`;if [ $num -ne 1 ];then echo $i;fi;done &gt; linked-gene.txt  #将具有连接关系的基因打印出来，由于本次测试是一个基因组，没有相同的基因位于两个不同的染色体上。因此为了展示，手动修改一个基因，即将第二个染色体的第一个基因修改为第一个染色体第一个基因的名字。重新运行此步骤</span><br><span class="line"></span><br><span class="line">sort linked-gene.txt |uniq &gt; linked-gene-final.txt  #去重复，得到想要展示的基因名称列表</span><br><span class="line"></span><br><span class="line">for i in `cat linked-gene-final.txt`;do grep $i coral-genome-feature-list.txt;done |sed &#x27;N;s/\n/ \t/&#x27; &gt; coral-linked-info.txt  #得到第三个文件的雏形</span><br><span class="line"></span><br><span class="line">for i in `cat linked-gene-final.txt`;do sed -i -e &quot;s/\t$i//g&quot; -e &quot;s/\s\t/\t/g&quot; coral-linked-info.txt;done #得到最终的第三个输入文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="最后将得到的三个文件导入到TBtools软件中，绘图。"><a href="#最后将得到的三个文件导入到TBtools软件中，绘图。" class="headerlink" title="最后将得到的三个文件导入到TBtools软件中，绘图。"></a><strong>最后将得到的三个文件导入到TBtools软件中，绘图。</strong></h3><p>由于基因太多，基因名展示在图上重叠在一起一片漆黑，调整图片位置都卡好久，但是整体上看是符合预期的。因此，此方法适合选择部分基因来展示，不适合所有基因都进行共线性展示的情况。</p>
+<img src="/2022/07/14/circos/circos4.jpg" class title="This is an example image">
+
+<h3 id="为了方便展示，并美化图，将genome-feature-list文件简化，得到以下。"><a href="#为了方便展示，并美化图，将genome-feature-list文件简化，得到以下。" class="headerlink" title="为了方便展示，并美化图，将genome-feature-list文件简化，得到以下。"></a><strong>为了方便展示，并美化图，将genome-feature-list文件简化，得到以下。</strong></h3><img src="/2022/07/14/circos/circos5.jpg" class title="This is an example image">
+
+<p>进一步调整颜色得到最终的circos图，根据自己的需要调整图片各元素的颜色和位置。</p>
+<img src="/2022/07/14/circos/circos6.jpg" class title="This is an example image">
+
+<h3 id="为什么做circos图？"><a href="#为什么做circos图？" class="headerlink" title="为什么做circos图？"></a><strong>为什么做circos图？</strong></h3><p>展示基因组各种元件的信息，比如新测基因组与已测基因组的共线性情况；</p>
+<p>表示基因的复制情况等；</p>
+<p>……</p>
+<p>虽然TBtools不如circos软件的命令行模式灵活，但该工具为非编程用户提供了极大的便利，值得学习。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
 
       
@@ -314,7 +294,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">可视化</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">方法</a>
         		</li>
       		
 		</ul>
@@ -370,7 +350,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://wu-tz.github.io/2022/03/10/wordcloud/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://wu-tz.github.io/2022/07/14/circos/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -384,18 +364,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/07/14/circos/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          利用TBtools绘制简单的circos图
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/03/08/need-learn/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">分子进化生物学学习框架</div>
+    <a href="/2022/03/10/wordcloud/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">词云图</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -423,7 +394,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="wordcloud" data-title="词云图" data-url="https://wu-tz.github.io/2022/03/10/wordcloud/"></div>
+	<div class="ds-thread" data-thread-key="circos" data-title="利用TBtools绘制简单的circos图" data-url="https://wu-tz.github.io/2022/07/14/circos/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

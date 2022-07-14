@@ -6,22 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wu-tz.github.io">
-  <title>词云图 | Wutianzhen</title>
+  <title>Wutianzhen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="利用wordcloud2包制作词云图，对数据的词频进行可视化。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="词云图">
-<meta property="og:url" content="https://wu-tz.github.io/2022/03/10/wordcloud/index.html">
+  <meta name="description" content="三年级就肄业的小学生">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wutianzhen">
+<meta property="og:url" content="https://wu-tz.github.io/page/3/index.html">
 <meta property="og:site_name" content="Wutianzhen">
-<meta property="og:description" content="利用wordcloud2包制作词云图，对数据的词频进行可视化。">
+<meta property="og:description" content="三年级就肄业的小学生">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://wu-tz.github.io/2022/03/10/wordcloud/0310-1.png">
-<meta property="article:published_time" content="2022-03-10T13:04:22.000Z">
-<meta property="article:modified_time" content="2022-03-10T13:29:17.231Z">
 <meta property="article:author" content="Wutianzhen">
-<meta property="article:tag" content="可视化">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://wu-tz.github.io/2022/03/10/wordcloud/0310-1.png">
   
     <link rel="alternative" href="/atom.xml" title="Wutianzhen" type="application/atom+xml">
   
@@ -181,20 +176,17 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-wordcloud" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-STARTING" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
         
         
-        <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2022/03/10/wordcloud/" class="archive-article-date">
-  	<time datetime="2022-03-10T13:04:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-10</time>
+<a href="/2021/08/26/STARTING/" class="archive-article-date">
+  	<time datetime="2021-08-26T02:27:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-26</time>
 </a>
         
       </header>
@@ -202,108 +194,15 @@
     <div class="article-entry" itemprop="articleBody">
 	   <center><p>
   
-    <h1 class="article-title_code_ant" itemprop="name">
-      词云图
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2021/08/26/STARTING/">生命之源：海洋</a>
     </h1>
   
 </p></center>
       
-        <p>利用wordcloud2包制作词云图，对数据的词频进行可视化。</p>
-<span id="more"></span>
-
-<p>准备excel表格，包括关键词和频数。例如：</p>
-<table>
-<thead>
-<tr>
-<th align="center">word</th>
-<th align="center">freq</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">分子遗传学</td>
-<td align="center">9</td>
-</tr>
-<tr>
-<td align="center">分类学</td>
-<td align="center">9</td>
-</tr>
-<tr>
-<td align="center">生物地理学</td>
-<td align="center">8</td>
-</tr>
-<tr>
-<td align="center">古生物学</td>
-<td align="center">6</td>
-</tr>
-<tr>
-<td align="center">生态学</td>
-<td align="center">10</td>
-</tr>
-<tr>
-<td align="center">分子系统学</td>
-<td align="center">8</td>
-</tr>
-<tr>
-<td align="center">水生动物学</td>
-<td align="center">10</td>
-</tr>
-<tr>
-<td align="center">微生物</td>
-<td align="center">7</td>
-</tr>
-<tr>
-<td align="center">基因组学</td>
-<td align="center">8</td>
-</tr>
-<tr>
-<td align="center">地质学</td>
-<td align="center">5</td>
-</tr>
-<tr>
-<td align="center">气候学</td>
-<td align="center">6</td>
-</tr>
-<tr>
-<td align="center">环境海洋学</td>
-<td align="center">7</td>
-</tr>
-<tr>
-<td align="center">进化生物学</td>
-<td align="center">9</td>
-</tr>
-</tbody></table>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setwd(<span class="string">&quot;D:/Desktop/词云图&quot;</span>) <span class="comment">#设置工作路径</span></span><br><span class="line">dir()</span><br><span class="line">install.packages(<span class="string">&quot;wordcloud2&quot;</span>) <span class="comment">#安装wordcloud2包</span></span><br><span class="line">library(wordcloud2)</span><br><span class="line">install.packages(<span class="string">&quot;openxlsx&quot;</span>)</span><br><span class="line">library(openxlsx)</span><br><span class="line">wordmap&lt;-read.xlsx(<span class="string">&quot;wordcloud.xlsx&quot;</span>)</span><br><span class="line">wordcloud2(wordmap,size=<span class="number">0.3</span>,shape=<span class="string">&#x27;cardioid&#x27;</span>,color=<span class="string">&quot;random-light&quot;</span>) <span class="comment">#可视化，关于更多参数，可由help(&quot;wordcloud2&quot;)命令查看</span></span><br></pre></td></tr></table></figure>
-
-<p>可得到以下：</p>
-<img src="/2022/03/10/wordcloud/0310-1.png" class title="This is an example image"><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+        <h1 id="Here-we-come"><a href="#Here-we-come" class="headerlink" title="Here we come ~"></a>Here we come ~</h1><h2 id><a href="#" class="headerlink" title></a></h2><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -314,7 +213,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">可视化</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -323,84 +222,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/26/STARTING/">show all >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://wu-tz.github.io/2022/03/10/wordcloud/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2022/07/14/circos/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          利用TBtools绘制简单的circos图
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/03/08/need-learn/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">分子进化生物学学习框架</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -420,54 +251,12 @@
 
 
 
-  
-  <div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="wordcloud" data-title="词云图" data-url="https://wu-tz.github.io/2022/03/10/wordcloud/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
 
   
   
-  
-
-  
-
-  
-
-  
-  
-      <div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
-<script src="https://cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
-<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
-
-<script>
-var gitalk = new Gitalk({
-  clientID: '',
-  clientSecret: '',
-  repo: 'Wu-tz.github.io',
-  owner: 'Wu-tz',
-  admin: ['Wu-tz'],
-  id: md5(window.location.pathname),
-  distractionFreeMode: true
-})
-
-gitalk.render('gitalk-container')
-</script>
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
   
 
 
@@ -505,8 +294,8 @@ gitalk.render('gitalk-container')
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
