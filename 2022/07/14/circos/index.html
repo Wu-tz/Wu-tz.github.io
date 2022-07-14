@@ -15,18 +15,20 @@
 <meta property="og:site_name" content="Wutianzhen">
 <meta property="og:description" content="首先测试一下TBtools中在Graphics下面Advanced Circos工具。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/0.jpg">
 <meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos1.jpg">
 <meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos2.jpg">
 <meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos3.jpg">
 <meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos4.jpg">
 <meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos5.jpg">
 <meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos6.jpg">
+<meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/7.png">
 <meta property="article:published_time" content="2022-07-14T01:25:15.000Z">
-<meta property="article:modified_time" content="2022-07-14T09:59:32.983Z">
+<meta property="article:modified_time" content="2022-07-14T10:37:08.211Z">
 <meta property="article:author" content="Wutianzhen">
 <meta property="article:tag" content="方法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://wu-tz.github.io/2022/07/14/circos/circos1.jpg">
+<meta name="twitter:image" content="https://wu-tz.github.io/2022/07/14/circos/0.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Wutianzhen" type="application/atom+xml">
   
@@ -216,6 +218,8 @@
         <h3 id="首先测试一下TBtools中在Graphics下面Advanced-Circos工具。"><a href="#首先测试一下TBtools中在Graphics下面Advanced-Circos工具。" class="headerlink" title="首先测试一下TBtools中在Graphics下面Advanced Circos工具。"></a><strong>首先测试一下TBtools中在Graphics下面Advanced Circos工具。</strong></h3><span id="more"></span>
 
 <p>该工具下的三个输入框分别输入三个文件，文件中每列以制表符分隔开来。</p>
+<img src="/2022/07/14/circos/0.jpg" class title="This is an example image">
+
 <p>①染色体的名字及其长度，共两列；</p>
 <p>②染色体上所有元件特征的位置信息，分别为染色体名称、序列元件名称、序列原件的起始位置和序列原件的终止位置，共四列；</p>
 <p>③同一元件在不同染色体的位置信息，分别为染色体1的名称、元件在染色体1的起始位置、染色体1的终止位置、染色体2的名称、元件在染色体2的起始位置、染色体2的终止位置。</p>
@@ -255,6 +259,13 @@
 <p>表示基因的复制情况等；</p>
 <p>……</p>
 <p>虽然TBtools不如circos软件的命令行模式灵活，但该工具为非编程用户提供了极大的便利，值得学习。</p>
+<p>若绘制以下复杂的基因组信息图，建议使用circos命令行模式的软件。</p>
+<img src="/2022/07/14/circos/7.png" class title="This is an example image">
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">计算染色体长度</span></span><br><span class="line"><span class="meta">#</span><span class="bash">生成染色体文件 7列</span></span><br><span class="line"><span class="meta">#</span><span class="bash">生成窗口文件， 窗口大小50Kb</span></span><br><span class="line"><span class="meta">#</span><span class="bash">计算每个窗口平均GC含量</span></span><br><span class="line"><span class="meta">#</span><span class="bash">计算每个窗口基因条数</span></span><br><span class="line"><span class="meta">#</span><span class="bash">计算每个窗口重复序列含量</span></span><br><span class="line"><span class="meta">#</span><span class="bash">共线性模块鉴定</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a><strong>参考：</strong></h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9e4ad7d4881b">基因组Circos图绘制 - 简书 (jianshu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/9564df5701768e9951e79b89680203d8ce2f6adc.html">TBtools绘制Circos图小攻略 - 百度文库 (baidu.com)</a></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
 
