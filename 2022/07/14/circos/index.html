@@ -6,15 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wu-tz.github.io">
-  <title>利用TBtools绘制简单的circos图 | Wutianzhen</title>
+  <title>利用TBtools绘制简单的共线性图 | Wutianzhen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先测试一下TBtools中在Graphics下面Advanced Circos工具。">
+  <meta name="description" content="学习目标：长颈鹿基因组文章中的基因组共线性关系图。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用TBtools绘制简单的circos图">
+<meta property="og:title" content="利用TBtools绘制简单的共线性图">
 <meta property="og:url" content="https://wu-tz.github.io/2022/07/14/circos/index.html">
 <meta property="og:site_name" content="Wutianzhen">
-<meta property="og:description" content="首先测试一下TBtools中在Graphics下面Advanced Circos工具。">
+<meta property="og:description" content="学习目标：长颈鹿基因组文章中的基因组共线性关系图。">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/qiwang.jpg">
 <meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/0.jpg">
 <meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos1.jpg">
 <meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos2.jpg">
@@ -23,12 +24,15 @@
 <meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos5.jpg">
 <meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/circos6.jpg">
 <meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/7.png">
+<meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/2-1.jpg">
+<meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/2-2.jpg">
+<meta property="og:image" content="https://wu-tz.github.io/2022/07/14/circos/2-3.jpg">
 <meta property="article:published_time" content="2022-07-14T01:25:15.000Z">
-<meta property="article:modified_time" content="2022-07-14T10:37:08.211Z">
+<meta property="article:modified_time" content="2022-07-15T02:47:11.296Z">
 <meta property="article:author" content="Wutianzhen">
 <meta property="article:tag" content="方法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://wu-tz.github.io/2022/07/14/circos/0.jpg">
+<meta name="twitter:image" content="https://wu-tz.github.io/2022/07/14/circos/qiwang.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Wutianzhen" type="application/atom+xml">
   
@@ -210,14 +214,17 @@
 	   <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      利用TBtools绘制简单的circos图
+      利用TBtools绘制简单的共线性图
     </h1>
   
 </p></center>
       
-        <h3 id="首先测试一下TBtools中在Graphics下面Advanced-Circos工具。"><a href="#首先测试一下TBtools中在Graphics下面Advanced-Circos工具。" class="headerlink" title="首先测试一下TBtools中在Graphics下面Advanced Circos工具。"></a><strong>首先测试一下TBtools中在Graphics下面Advanced Circos工具。</strong></h3><span id="more"></span>
+        <p>学习目标：长颈鹿基因组文章中的基因组共线性关系图。</p>
+<img src="/2022/07/14/circos/qiwang.jpg" class title="This is an example image">
 
-<p>该工具下的三个输入框分别输入三个文件，文件中每列以制表符分隔开来。</p>
+<span id="more"></span>
+
+<h3 id="首先测试一下TBtools中在Graphics下面Advanced-Circos工具。"><a href="#首先测试一下TBtools中在Graphics下面Advanced-Circos工具。" class="headerlink" title="首先测试一下TBtools中在Graphics下面Advanced Circos工具。"></a><strong>首先测试一下TBtools中在Graphics下面Advanced Circos工具。</strong></h3><p>该工具下的三个输入框分别输入三个文件，文件中每列以制表符分隔开来。</p>
 <img src="/2022/07/14/circos/0.jpg" class title="This is an example image">
 
 <p>①染色体的名字及其长度，共两列；</p>
@@ -264,8 +271,24 @@
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">计算染色体长度</span></span><br><span class="line"><span class="meta">#</span><span class="bash">生成染色体文件 7列</span></span><br><span class="line"><span class="meta">#</span><span class="bash">生成窗口文件， 窗口大小50Kb</span></span><br><span class="line"><span class="meta">#</span><span class="bash">计算每个窗口平均GC含量</span></span><br><span class="line"><span class="meta">#</span><span class="bash">计算每个窗口基因条数</span></span><br><span class="line"><span class="meta">#</span><span class="bash">计算每个窗口重复序列含量</span></span><br><span class="line"><span class="meta">#</span><span class="bash">共线性模块鉴定</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="傻瓜式利用TBtools绘制两基因组的共线性关系图"><a href="#傻瓜式利用TBtools绘制两基因组的共线性关系图" class="headerlink" title="傻瓜式利用TBtools绘制两基因组的共线性关系图"></a><strong>傻瓜式利用TBtools绘制两基因组的共线性关系图</strong></h3><p>要想制作推文最初的C图，可以使用Graphics中的Comparative genomecs下的两个工具，即One Step MCScanX和Dual Systeny Plot for MCScanX，前者用于处理绘图所需的正确格式的文件，后者用于两个基因组关系的绘图。</p>
+<p>只需要分别准备两个物种的基因组文件和GFF文件即可，这四个文件拖入第一个工具，运行耗时比较久（半小时左右？），这样就得到第二个工具的输入文件，然后拖入点击秒出图。</p>
+<img src="/2022/07/14/circos/2-1.jpg" class title="This is an example image">
+
+<img src="/2022/07/14/circos/2-2.jpg" class title="This is an example image">
+
+<p>此工具不用任何思考，只需点点点就能得到这个。</p>
+<img src="/2022/07/14/circos/2-3.jpg" class title="This is an example image">
+
+<p>注：</p>
+<p>①最好使用两个染色体水平的基因组作图，上面的基因组仅组装到contig水平，所以看不出什么进化事件；</p>
+<p>②可以自行编辑第一步骤得到的ctl文件，通过保留想要展示的片段，可将其他片段的名字直接删除；</p>
+<p>③颜色可以编辑。</p>
+<p>④NGenomeSyn是专门绘制基因组共线性的命令行软件，功能更加详细，更加灵活。</p>
 <h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a><strong>参考：</strong></h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9e4ad7d4881b">基因组Circos图绘制 - 简书 (jianshu.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/9564df5701768e9951e79b89680203d8ce2f6adc.html">TBtools绘制Circos图小攻略 - 百度文库 (baidu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="http://events.jianshu.io/p/2334a6346941">用TBtools，快速高效实现基因组共线性分析与可视化， 赞！ - 简书 (jianshu.io)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/45bece9a0518?u_atoken=e36c9fae-6516-444d-8da6-020253c10ad5&u_asession=01RZQiEOOy5y2FZHSLGFuNm6o66TPOTCURqsOSgM91FwilwBRdfoa-E7OHE3in8YfdX0KNBwm7Lovlpxjd_P_q4JsKWYrT3W_NKPr8w6oU7K8awO_gvLOfVsK91fZVeAlxyuYfe7vWV-zsHJifFo5DumBkFo3NEHBv0PZUm6pbxQU&u_asig=05MnJ8y49Xl-DNbLqKN3ifjC9q2vGIV6OHqf9Su8nn0C3Xb8xiMVw20TZhbcICcUTvoA-bFWqXeIGcpO0swmce1Vv092BNyGYTt6Kc0QohIJhJFDhJgu5XRQUdG9FMAJ6MJ0Sq6IKMJ_1nFNQSQh4W6SRnMn4xAY1-5tBawniJyQz9JS7q8ZD7Xtz2Ly-b0kmuyAKRFSVJkkdwVUnyHAIJzUw15I7yC7kCIaO9J9SWLL5voCuZL7lUVMjY79jYx8u2fqft3yiexPr1Pj5ASov3mu3h9VXwMyh6PgyDIVSG1W_3XTunNP28J065ybLQMiTTIRox2heX479OC2z3E-OFfsT7f3EhRgdlsw_jrTQ1f-hlskxi08aOPMtTDIEjMXOAmWspDxyAEEo4kbsryBKb9Q&u_aref=MGJwi+xsSXP/s2pFuWdmzWWTGmU=">如何高效而且优雅地比较多物种的不同基因组区域？ - 简书 (jianshu.com)</a></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
 
@@ -405,7 +428,7 @@
   
   <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="circos" data-title="利用TBtools绘制简单的circos图" data-url="https://wu-tz.github.io/2022/07/14/circos/"></div>
+	<div class="ds-thread" data-thread-key="circos" data-title="利用TBtools绘制简单的共线性图" data-url="https://wu-tz.github.io/2022/07/14/circos/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
