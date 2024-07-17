@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://wu-tz.github.io/2024/07/17/genome-anno/</loc>
+    
+    <lastmod>2024-07-17</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://wu-tz.github.io/2023/10/07/phylonetwork/</loc>
     
     <lastmod>2024-05-29</lastmod>
@@ -242,7 +249,7 @@
 
   <url>
     <loc>https://wu-tz.github.io/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -250,119 +257,126 @@
   
   <url>
     <loc>https://wu-tz.github.io/tags/shell%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/Links/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/%E8%A7%A3%E5%86%B3%E6%8A%A5%E9%94%99/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/%E5%89%8D%E6%B2%BF%E4%BA%86%E8%A7%A3/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/perl/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/PhyloNetworks/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/%E4%BF%9D%E6%8A%A4%E7%94%9F%E7%89%A9%E5%A4%9A%E6%A0%B7%E6%80%A7/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/%E8%BD%AC%E5%BD%95%E7%BB%84/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/cafe5/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/ete3/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/PhyParts/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/tags/QuIBL/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://wu-tz.github.io/tags/genome%E6%B3%A8%E9%87%8A/</loc>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -371,21 +385,21 @@
   
   <url>
     <loc>https://wu-tz.github.io/categories/%E7%BD%91%E7%8A%B6%E8%BF%9B%E5%8C%96/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/categories/%E5%88%86%E6%9E%90%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://wu-tz.github.io/categories/%E6%89%B9%E9%87%8F%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/</loc>
-    <lastmod>2024-05-29</lastmod>
+    <lastmod>2024-07-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
