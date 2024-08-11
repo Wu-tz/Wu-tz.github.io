@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>如何高效下载基因组文件或原始reads数据</title>
+      <link href="/2024/08/11/download-data/"/>
+      <url>/2024/08/11/download-data/</url>
+      
+        <content type="html"><![CDATA[<p><strong>如何简单高效下载ncbi中refseq、genbank数据库的基因组或EBI数据库中的原始reads数据</strong></p><h4 id="（一）利用ncbi-genome-download批量下载基因组文件"><a href="#（一）利用ncbi-genome-download批量下载基因组文件" class="headerlink" title="（一）利用ncbi-genome-download批量下载基因组文件"></a><strong>（一）利用ncbi-genome-download批量下载基因组文件</strong></h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装</span></span><br><span class="line">conda install bioconda::ncbi-genome-download</span><br></pre></td></tr></table></figure><p>主要参数<br>groups参数定于目标物种所在的大类，包括’all’, ‘archaea’, ‘bacteria’, ‘fungi’, ‘invertebrate’, ‘metagenomes’, ‘plant’, ‘protozoa’, ‘vertebrate_mammalian’, ‘vertebrate_other’, ‘viral’。只将所属类群的名字放在命令行中<br>-s或–section 选择数据库refseq或genbank，一般不添加该参数，默认为refseq数据库<br>-t或–taxid 添加所下载物种在ncbi的id，可以直接添加，也可以放入一个文件中批量下载多个物种<br>-F或–formats 定义所需物种的数据的类型，包括’genbank’, ‘fasta’, ‘rm’, ‘features’, ‘gff’, ‘protein-fasta’, ‘genpept’, ‘wgs’, ‘translated-cds’, ‘all’，如果仅下载基因组数据则用fasta，看个人需求<br>-A或–assembly-accessions 利用基因组的accession号来下载，-t和-A参数选一个使用<br>–flat-output 该参数将所有文件直接转储到输出路径中，而不创建任何子目录<br>-o或–output-folder 输出文件的名字</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">示例1：下载文昌鱼的基因组文件,文昌鱼在ncbi的id为7739，注意在第2、3命令行中，在使用accessions号时，默认检索refseq库，应该用GCF开头的accession，如果使用GCA开头的accessions，应该加上-s genbank参数</span></span><br><span class="line">ncbi-genome-download --taxid 7739 invertebrate -F fasta --flat-output -o Amphioxus</span><br><span class="line">ncbi-genome-download --assembly-accessions GCF_000003815.2 invertebrate -F fasta --flat-output -o Amphioxus</span><br><span class="line">ncbi-genome-download -s genbank --assembly-accessions GCA_000003815.2 invertebrate -F fasta --flat-output -o Amphioxus1</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">示例2：批量下载文昌鱼和amil（id为45264）的基因组，将两着的id放到文件download_id.txt中</span></span><br><span class="line">ncbi-genome-download --taxid download_id.txt invertebrate -F fasta --flat-output -o genome_data</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash">示例3：下载amil的gff、genbank和protein-fasta文件</span></span><br><span class="line">ncbi-genome-download --taxid 45264 invertebrate -F gff,genbank,protein-fasta --flat-output -o amil</span><br></pre></td></tr></table></figure><p>ncbi-genome-download的其他用法，比如下载某一个属下所有的基因组等，可以参考<a href="https://github.com/kblin/ncbi-genome-download">https://github.com/kblin/ncbi-genome-download</a></p><h4 id="（二）利用aspera在EBI数据库下载sra数据"><a href="#（二）利用aspera在EBI数据库下载sra数据" class="headerlink" title="（二）利用aspera在EBI数据库下载sra数据"></a><strong>（二）利用aspera在EBI数据库下载sra数据</strong></h4><p>优势：①aspera中的ascp命令的下载速度远比wget和prefetch快；②相比与NCBI的SRA数据库，EBI可以直接下载fastq文件，避免sra文件向fastq文件的转换；</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">安装</span></span><br><span class="line">conda install hcc::aspera-cli</span><br></pre></td></tr></table></figure><p>主要参数<br>-v 打印详细信息<br>-i 密钥文件的地址，如果是conda下载，则在下载环境中的etc目录中：&#x2F;home&#x2F;tianzhen&#x2F;miniconda3&#x2F;envs&#x2F;evolution_work&#x2F;etc&#x2F;asperaweb_id_dsa.openssh<br>-l 最大下载速度<br>-k 1 设置断点续传<br>-T 禁用加密<br>–mode&#x3D;recv 选择下载模式，send为上传模式<br>–host&#x3D;fasp.sra.ebi.ac.uk NCBI的host名是ftp-private.ncbi.nlm.nih.gov，EBI的host名为fasp.sra.ebi.ac.uk<br>–user&#x3D;era-fasp NCBI的用户名anonftp，EBI的用户名era-fasp</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">示例：将accession号存入到文件sra_id.txt中,例如人皮肤转录组reads（SRR28800820）</span></span><br><span class="line"></span><br><span class="line">ascp -v -QT -l 200m -P33001 -k1 -i /home/tianzhen/miniconda3/envs/evolution_work/etc/asperaweb_id_dsa.openssh --mode=recv era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR288/020/SRR28800820/SRR28800820_1.fastq.gz ./</span><br></pre></td></tr></table></figure><p>下载速度平均60M&#x2F;s</p><img src="/2024/08/11/download-data/sra%E4%B8%8B%E8%BD%BD.png" class title="sra下载"><p>利用EBI下载页面导出多个下载链接进行批量下载。</p><p>参考：</p><p><a href="https://github.com/kblin/ncbi-genome-download">https://github.com/kblin/ncbi-genome-download</a></p><p><a href="https://lishensuo.github.io/posts/bioinfo/049%E4%B8%8B%E8%BD%BD%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AEsrr%E4%B8%8Efastq.gz%E6%96%B9%E5%BC%8F/">https://lishensuo.github.io/posts/bioinfo/049%E4%B8%8B%E8%BD%BD%E6%B5%8B%E5%BA%8F%E6%95%B0%E6%8D%AEsrr%E4%B8%8Efastq.gz%E6%96%B9%E5%BC%8F/</a><br><a href="https://cloud.tencent.com/developer/article/1587554">https://cloud.tencent.com/developer/article/1587554</a></p><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据下载 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 公共组学数据下载 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>基因组注释——适合初学者的流程分解版</title>
       <link href="/2024/07/17/genome-anno/"/>
       <url>/2024/07/17/genome-anno/</url>
